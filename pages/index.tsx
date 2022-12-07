@@ -13,14 +13,18 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to Futureland!
-        </h1>
 
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.tsx</code>
-        </p>
+      <header
+        className="w-full h-96 bg-[url('/corn.jpg')] bg-cover bg-center flex justify-center items-center">
+        <div className="flex flex-col justify-center items-center">
+            <h1 className=" text-center text-5xl text-white font-bold drop-shadow-lg">WELCOME TO
+            <span className="text-amber-500">TOMORROWLAND</span>
+            </h1>
+            <p className="mt-5 text-center text-lg text-white opacity-70">Possibilities of the future</p>
+            <Link className="mt-8 px-12 py-3 bg-gradient-to-r from-amber-500 to-red-600 hover:from-amber-600 hover:to-red-700 text-xl text-white/70 font-semibold drop-shadow-lg rounded-full"
+                href="/apply">Apply today!</Link>
+        </div>
+      </header>
 
         <div className={styles.grid}>
           <Link href="/static-example" className={styles.card}>
@@ -39,18 +43,6 @@ export default function Home() {
           >
             <h2>Post DB Data &rarr;</h2>
             <p>See how easy it is to talk to the DB</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.card}
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
           </a>
         </div>
       </main>

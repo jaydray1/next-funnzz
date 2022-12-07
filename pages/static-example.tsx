@@ -36,14 +36,13 @@ export async function getStaticProps() {
 
 const StaticExample = ({ characters }) => {
     return (
-        <div className="container">
-            <h1>Static Home</h1>
-            <Link href="/">Go back home!</Link>
-            <div className="grid grid-cols-4 gap-4">
+        <div className="container mt-10">
+            <Link href="/" className="bg-black hover:bg-white hover:text-black border-solid border-2 border-black  text-white font-bold py-2 px-4 rounded"><span>&larr;</span> ET phone home <img className="w-8 h-8 inline-block mb-1" src="/et200a.jpg"/></Link>
+            <div className="mt-10 grid grid-cols-4 gap-4">
                 {
                     characters.results.map((character) => (
                       <Link href={{pathname: `/character/${character.name}`, query: { image: character.image, name: character.name }}}>
-                        <button className="rounded-lg border-solid border-2 border-red-500 hover:scale-110 p-10">
+                        <button className="opacity-75 rounded-lg border-solid border-2 p-10 hover:opacity-100">
                                 <Image
                                     loader={myLoader}
                                     src={character.image}

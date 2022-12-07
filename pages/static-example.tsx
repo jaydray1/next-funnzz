@@ -16,6 +16,7 @@ export async function getStaticProps() {
               status
               species
               image
+              id
             }
           }
         }
@@ -34,15 +35,15 @@ export async function getStaticProps() {
   }
 
 const StaticExample = ({ characters }) => {
-    console.log(characters)
     return (
-        <>
+        <div className="container">
             <h1>Static Home</h1>
             <Link href="/">Go back home!</Link>
             <div className="grid grid-cols-4 gap-4">
                 {
                     characters.results.map((character) => (
-                        <div className="rounded-lg border-solid border-2 border-red-500">
+                      <Link href={{pathname: `/character/${character.name}`, query: { image: character.image, name: character.name }}}>
+                        <button className="rounded-lg border-solid border-2 border-red-500 hover:scale-110 p-10">
                                 <Image
                                     loader={myLoader}
                                     src={character.image}
@@ -51,12 +52,13 @@ const StaticExample = ({ characters }) => {
                                     height={150}
                                     className="rounded-lg border-solid border-2 border-blue-500"
                                     />
-                                <div className="h-20">{character.name}</div>
-                        </div>
+                                <div className="w-36">{character.name}</div>
+                        </button>
+                      </Link>
                     ))
                 }
             </div>
-        </>
+        </div>
     )
 }
 export default StaticExample
